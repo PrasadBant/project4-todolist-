@@ -1,3 +1,16 @@
+const themeButton = document.getElementById("themeButton");
+
+let currentTheme = localStorage.getItem("theme") || "light";
+document.body.className = currentTheme;
+themeButton.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+
+themeButton.addEventListener("click", () => {
+  currentTheme = currentTheme === "light" ? "dark" : "light";
+  document.body.className = currentTheme;
+  themeButton.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("theme", currentTheme);
+});
+//used for buuton above l/d
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 const taskInput = document.getElementById("taskInput");
